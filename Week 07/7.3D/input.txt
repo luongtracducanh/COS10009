@@ -1,0 +1,43 @@
+4
+Reputation
+Taylor Swift
+images/reputation.jpg
+4
+End Game
+musics/end_game.mp3
+...Ready for It?
+musics/ready_for_it.mp3
+Look what you make me do
+musics/look_what_you_make_me_do.mp3
+Getaway car
+musics/getaway_car.mp3
+Folklore
+Taylor Swift
+images/folklore.jpg
+3
+cardigan
+musics/cardigan.mp3
+peace
+musics/peace.mp3
+seven
+musics/seven.mp3
+Lover
+Taylor Swift
+images/lover.jpg
+3
+Lover
+musics/lover.mp3
+Afterglow
+musics/afterglow.mp3
+Daylight
+musics/daylight.mp3
+RED
+Taylor Swift
+images/red.jpg
+3
+22
+musics/22.mp3
+Red
+musics/red.mp3
+Starlight
+musics/starlight.mp3

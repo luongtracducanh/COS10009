@@ -1,0 +1,12 @@
+Reputation
+Taylor Swift
+images/reputation.jpg
+4
+...Ready for It?
+musics/ready_for_it.mp3
+End Game
+musics/end_game.mp3
+Look what you make me do
+musics/look_what_you_make_me_do.mp3
+Getaway car
+musics/getaway_car.mp3
