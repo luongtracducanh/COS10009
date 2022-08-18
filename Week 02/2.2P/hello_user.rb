@@ -26,8 +26,8 @@ def main()
 
 	# Example of how to read floats:
 
-	height = read_float('Enter your height in metres (i.e as a float): ')
-	puts("Your height in inches is: ")
+	height = read_float('Enter your height in metres (i.e as a float):')
+	puts("Your height in inches is:")
 	puts(height * INCHES)
 
 	puts 'Finished'
