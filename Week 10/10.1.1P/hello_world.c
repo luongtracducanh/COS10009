@@ -2,7 +2,7 @@
 
 void print_message(char *message)
 {
-    printf("%s", message);
+  printf("%s", message);
 }
 
 int main()

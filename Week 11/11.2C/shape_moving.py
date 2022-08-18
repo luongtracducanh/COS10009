@@ -25,13 +25,13 @@ while not done:
 
     pressed = pygame.key.get_pressed()
 
-    if pressed[pygame.K_LEFT]: 
+    if pressed[pygame.K_LEFT]:
         if x >= 3:
             x -= 3
     if pressed[pygame.K_RIGHT]:
         if x <= SCREEN_WIDTH - BLOCK_EDGE - 3:
             x += 3
-    if pressed[pygame.K_UP]: 
+    if pressed[pygame.K_UP]:
         if y >= 3:
             y -= 3
     if pressed[pygame.K_DOWN]:
@@ -48,5 +48,4 @@ while not done:
 
     rect = pygame.Rect(x, y, BLOCK_EDGE, BLOCK_EDGE)
     pygame.draw.rect(screen, color, rect)
-
     pygame.display.flip()

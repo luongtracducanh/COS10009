@@ -23,7 +23,7 @@ end
 # Returns an array of tracks read from the given file
 
 def read_tracks(music_file)
-	
+
 	count = music_file.gets().to_i()
 	tracks = Array.new()
 
@@ -51,48 +51,46 @@ end
 
 # Takes a single track and prints it to the terminal
 def print_track(track)
-  	puts('Track title is: ' + track.name)
+	puts('Track title is: ' + track.name)
 	puts('Track file location is: ' + track.location)
 end
-
 
 # search for track by name.
 # Returns the index of the track or -1 if not found
 def search_for_track_name(tracks, search_string)
 
-# Put a while loop here that searches through the tracks
-# Use the read_string() function from input_functions.
-# NB: you might need to use .chomp to compare the strings correctly
+	# Put a while loop here that searches through the tracks
+	# Use the read_string() function from input_functions.
+	# NB: you might need to use .chomp to compare the strings correctly
 
-# Put your code here.
+	# Put your code here.
 	found_index = -1
 	for i in 0..tracks.length() - 1
 		if tracks[i].name == search_string
-			found_index = i 
+			found_index = i
 			break
 		end
 	end
-  	return found_index
+	return found_index
 end
-
 
 # Reads in an Album from a file and then prints all the album
 # to the terminal
 
 def main()
-  	music_file = File.new("album.txt", "r")
+	music_file = File.new("album.txt", "r")
 	tracks = read_tracks(music_file)
-  	music_file.close()
+	music_file.close()
 
 	print_tracks(tracks)
-  	search_string = read_string("Enter the track name you wish to find: ")
-  	index = search_for_track_name(tracks, search_string)
-  	if index > -1
-   		puts "Found " + tracks[index].name
+	search_string = read_string("Enter the track name you wish to find: ")
+	index = search_for_track_name(tracks, search_string)
+	if index > -1
+		puts "Found " + tracks[index].name
 		puts " at " + index.to_s()
-  	else
-    	puts "Entry not Found"
-  	end
+	else
+		puts "Entry not Found"
+	end
 end
 
 main()

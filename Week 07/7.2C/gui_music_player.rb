@@ -5,20 +5,21 @@ TOP_COLOR = Gosu::Color.new(0xFF1EB1FA)
 BOTTOM_COLOR = Gosu::Color.new(0xFF1D4DB5)
 SCREEN_W = 800
 SCREEN_H = 600
-X_LOCATION = 400		# x-location to display track's name
+X_LOCATION = 400 # x-location to display track's name
 
 module ZOrder
-  BACKGROUND, PLAYER, UI = *0..2
+	BACKGROUND, PLAYER, UI = *0..2
 end
 
 module Genre
-  POP, CLASSIC, JAZZ, ROCK = *1..4
+	POP, CLASSIC, JAZZ, ROCK = *1..4
 end
 
 GENRE_NAMES = ['Null', 'Pop', 'Classic', 'Jazz', 'Rock']
 
 class ArtWork
 	attr_accessor :bmp
+
 	def initialize(file)
 		@bmp = Gosu::Image.new(file)
 	end
@@ -26,6 +27,7 @@ end
 
 class Album
 	attr_accessor :title, :artist, :artwork, :tracks
+
 	def initialize (title, artist, artwork, tracks)
 		@title = title
 		@artist = artist
@@ -36,6 +38,7 @@ end
 
 class Track
 	attr_accessor :name, :location, :dim
+
 	def initialize(name, location, dim)
 		@name = name
 		@location = location
@@ -45,6 +48,7 @@ end
 
 class Dimension
 	attr_accessor :leftX, :topY, :rightX, :bottomY
+
 	def initialize(leftX, topY, rightX, bottomY)
 		@leftX = leftX
 		@topY = topY
@@ -53,19 +57,18 @@ class Dimension
 	end
 end
 
-
 class MusicPlayerMain < Gosu::Window
 
 	def initialize
-	    super SCREEN_W, SCREEN_H
-	    self.caption = "Music Player"
-	    @track_font = Gosu::Font.new(25)
-	    @album = read_album()
+		super SCREEN_W, SCREEN_H
+		self.caption = "Music Player"
+		@track_font = Gosu::Font.new(25)
+		@album = read_album()
 		@track_playing = 0
 		playTrack(@track_playing, @album)
 	end
 
-  	# Read a single track
+	# Read a single track
 	def read_track(a_file, idx)
 		track_name = a_file.gets.chomp
 		track_location = a_file.gets.chomp
@@ -109,7 +112,7 @@ class MusicPlayerMain < Gosu::Window
 
 	# Draw album
 	def draw_albums(albums)
-		@album.artwork.draw(50, 50 , z = ZOrder::PLAYER, 0.3, 0.3)
+		@album.artwork.draw(50, 50, z = ZOrder::PLAYER, 0.3, 0.3)
 		@album.tracks.each do |track|
 			display_track(track)
 		end
@@ -135,7 +138,6 @@ class MusicPlayerMain < Gosu::Window
 		@track_font.draw(track.name, X_LOCATION, track.dim.topY, ZOrder::PLAYER, 1.0, 1.0, Gosu::Color::BLACK)
 	end
 
-
 	# Takes a track index and an Album and plays the Track from the Album
 	def playTrack(track, album)
 		@song = Gosu::Song.new(album.tracks[track].location)
@@ -144,7 +146,7 @@ class MusicPlayerMain < Gosu::Window
 
 	# Draw a coloured background using TOP_COLOR and BOTTOM_COLOR
 	def draw_background()
-		draw_quad(0,0, TOP_COLOR, 0, SCREEN_H, TOP_COLOR, SCREEN_W, 0, BOTTOM_COLOR, SCREEN_W, SCREEN_H, BOTTOM_COLOR, z = ZOrder::BACKGROUND)
+		draw_quad(0, 0, TOP_COLOR, 0, SCREEN_H, TOP_COLOR, SCREEN_W, 0, BOTTOM_COLOR, SCREEN_W, SCREEN_H, BOTTOM_COLOR, z = ZOrder::BACKGROUND)
 	end
 
 	# Not used? Everything depends on mouse actions.
@@ -162,21 +164,22 @@ class MusicPlayerMain < Gosu::Window
 		draw_current_playing(@track_playing)
 	end
 
- 	def needs_cursor?; true; end
-
+	def needs_cursor?
+		true;
+	end
 
 	def button_down(id)
 		case id
-	    when Gosu::MsLeft
-	    	# --- Check which track was clicked on ---
-	    	for i in 0..@album.tracks.length() - 1
-		    	if area_clicked(@album.tracks[i].dim.leftX, @album.tracks[i].dim.topY, @album.tracks[i].dim.rightX, @album.tracks[i].dim.bottomY)
-		    		playTrack(i, @album)
-		    		@track_playing = i
-		    		break
-		    	end
-		    end
-	    end
+		when Gosu::MsLeft
+			# --- Check which track was clicked on ---
+			for i in 0..@album.tracks.length() - 1
+				if area_clicked(@album.tracks[i].dim.leftX, @album.tracks[i].dim.topY, @album.tracks[i].dim.rightX, @album.tracks[i].dim.bottomY)
+					playTrack(i, @album)
+					@track_playing = i
+					break
+				end
+			end
+		end
 	end
 
 end

@@ -8,7 +8,8 @@ void print_silly_name(my_string name)
 {
   printf("Your name %s is a ", name.str);
   int index;
-  for(index=0;index<LOOP_COUNT;index++) {
+  for(index=0;index<LOOP_COUNT;index++)
+  {
     printf("silly ");
   }
   printf("name!\n");

@@ -17,7 +17,6 @@ end
 # copy your code from the previous stage below and 
 # change it to call the procedure above, passing in the name:
 
-
 # put your main() from stage one here
 def main()
 	name = read_string("What is your name?")

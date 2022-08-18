@@ -2,16 +2,16 @@
 # eg: 5.1T, 5.2T
 
 module Genre
-  POP, CLASSIC, JAZZ, ROCK = *1..4
+	POP, CLASSIC, JAZZ, ROCK = *1..4
 end
 
 $genre_names = ['Null', 'Pop', 'Classic', 'Jazz', 'Rock']
 
 class Album
-# NB: you will need to add tracks to the following and the initialize()
+	# NB: you will need to add tracks to the following and the initialize()
 	attr_accessor :title, :artist, :genre, :tracks
 
-# complete the missing code:
+	# complete the missing code:
 	def initialize (title, artist, genre, tracks)
 		# insert lines here
 		@title = title
@@ -42,7 +42,7 @@ end
 # Returns an array of tracks read from the given file
 
 def read_tracks(music_file)
-	
+
 	count = music_file.gets().to_i()
 	tracks = Array.new()
 
@@ -72,8 +72,8 @@ end
 
 def read_album(music_file)
 
-  	# read in all the Album's fields/attributes including all the tracks
-  	# complete the missing code
+	# read in all the Album's fields/attributes including all the tracks
+	# complete the missing code
 	album_artist = music_file.gets.chomp.to_s
 	album_title = music_file.gets.chomp.to_s
 	album_genre = music_file.gets.chomp.to_i
@@ -83,12 +83,11 @@ def read_album(music_file)
 	return album
 end
 
-
 # Takes a single album and prints it to the terminal along with all its tracks
 def print_album(album)
 
-  	# print out all the albums fields/attributes
-  	# Complete the missing code.
+	# print out all the albums fields/attributes
+	# Complete the missing code.
 	puts(album.artist)
 	puts(album.title)
 	puts('Genre is ' + album.genre.to_s)
@@ -99,7 +98,7 @@ end
 
 # Takes a single track and prints it to the terminal
 def print_track(track)
-  	puts('Track title is: ' + track.name)
+	puts('Track title is: ' + track.name)
 	puts('Track file location is: ' + track.location)
 end
 
