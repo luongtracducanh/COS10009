@@ -25,7 +25,7 @@ end
 
 def main()
 	age = get_age()
-	name = get_string("Enter your name:")
+	name = get_string("Enter your name:").chomp()
 	print_year_born(name, age)
 end
 
